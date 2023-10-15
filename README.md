@@ -1,3 +1,9 @@
-# Project3
+# Project 3: Gun Violence in the United States
 
-Data source: https://www.kaggle.com/code/spittman1248/effect-of-socioeconomic-status-on-obesity/input
+### Contributors:
+- "Alice" Lan Nguyen
+- Arnold Miranda Reynoso
+- Jacob Anderson
+- MaiDao Lor
+
+
