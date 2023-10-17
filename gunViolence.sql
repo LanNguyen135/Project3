@@ -1,5 +1,8 @@
+
+--drop if exits
 DROP TABLE IF EXISTS gunViolence;
 
+--create table
 CREATE TABLE gunViolence (
 	incident_id INT PRIMARY KEY,
 	date DATE,

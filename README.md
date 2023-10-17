@@ -5,5 +5,3 @@
 - Arnold Miranda Reynoso
 - Jacob Anderson
 - MaiDao Lor
-
-
