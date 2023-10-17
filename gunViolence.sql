@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS gunViolence;
+DROP TABLE IF EXISTS gunviolence;
 
-CREATE TABLE gunViolence (
+CREATE TABLE gunviolence (
 	incident_id INT PRIMARY KEY,
 	date DATE,
 	state VARCHAR(15),
@@ -8,5 +8,9 @@ CREATE TABLE gunViolence (
 	city_or_county VARCHAR(50),
 	n_killed INT,
 	n_injured INT,
-	population_2020 INT
+	latitude FLOAT,
+	longitude FLOAT,
+	population INT
 );
+
+SELECT * FROM gunviolence
