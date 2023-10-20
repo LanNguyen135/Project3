@@ -64,31 +64,25 @@ from flask_sqlalchemy import SQLAlchemy
 
 # engine = create_engine("sqlite:///titanic.sqlite")
 
-# # reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(autoload_with=engine)
-
-# # Save reference to the table
-# Passenger = Base.classes.passenger
-
-
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
 
 #################################################
-# Database Setup - using postgres
+# Database Setup - using postgres - used this site as reference https://www.geeksforgeeks.org/connecting-postgresql-with-sqlalchemy-in-python/
 #################################################
 
 # engine = create_engine(f"postgresql://postgres:{password}@localhost:5432/Gun_Violence")
 # vs
 engine = create_engine(f"postgresql+psycopg2://postgres:{password}@localhost:5432/Gun_Violence") #  application of psycopg taken from this overstackflow https://stackoverflow.com/questions/9353822/connecting-postgresql-with-sqlalchemy
 connection = engine.connect()
+var = Session.query(gunviolence).all()
+
 db = SQLAlchemy(app)
 
 # psycopg2 are basically the Python drivers for PostgreSQL that need to be installed separately. - tldr howver this points to me not even knowing what the psycopg2 library even does ...... oof
+# ok but is it now connected what now? how do I query? here or in the routes? it looks like the sqlite has more code to it - what does it do and does the postgres method need the same bases?
 
 #################################################
 # Flask Routes
@@ -96,26 +90,24 @@ db = SQLAlchemy(app)
 
 
 @app.route("/") # are we only going to use one route? and how do we use this route to display our data? 
-def data_values():
-    # Query All Records in the the Database
-    query = text("SELECT * FROM Census_Data")
-    data = engine.execute(query)
-    for record in data:
-        print(record)
-# is this an ok test?
-
-    # replace next line with whatever data you need from your database - so does this mean not importing the databsse here but rather get the data we need from the database right?
-    data = {'x_values': [1, 2, 3, 4, 5], 'y_values': [1, 4, 9, 16, 25]} 
+def plot_values():
+    # replace next line with whatever data you need from your database 
+    #data = {'x_values': var, 'y_values': [1, 4, 9, 16, 25]} 
     # data2 =  {'x_values': [1, 2, 3, 4, 5], 'y_values': [1, 4, 9, 16, 25]}  - second data made as my database will contain two datasets: data and metaData
-    # This is not how we will call our postgres data - it will be diffrent - again how do we import postgres?
-
-    return render_template('index.html', data=data) # whats up with render_template? as in why is it not colored in? which library does it even come from?
+    #return render_template('index.html', data=data)
 
 # how do we implement both databases? metadata and data? 
-# return render_template('index.html', data1=data1, data2 = data2)? i forgot how my instructor did it - going to need to ask him - but first need to setup posgtgres connection.
+# return render_template('index.html', data1=data1, data2 = dta2a)
 
-
-
+#################################################
 # Flask Execution
+#################################################
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# query properly
+# test with Mai's data
+# make sure that they are renderd properly 
+
