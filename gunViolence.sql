@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-
---drop if exits
-DROP TABLE IF EXISTS gunViolence;
-
---create table
-CREATE TABLE gunViolence (
-=======
 DROP TABLE IF EXISTS gunviolence;
 
 CREATE TABLE gunviolence (
->>>>>>> 652af946a0bf57abb8953ee72cf68873c6e9e59e
 	incident_id INT PRIMARY KEY,
 	date DATE,
 	state VARCHAR(15),

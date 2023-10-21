@@ -6,10 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Basic Charts</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </head>
 <body>
+    <select id="selDataset">
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+    </select>
     <div id="plot"></div>
-    <!-- Include Plotly library -->
-    <script src="static/js/app.js"></script>
-</body>
+    <div id="container">></div>
+    <canvas id="myChart"></canvas>
+    <script type="text/javascript" src="../data/data.json"></script>
+    <script src="app.js"></script>   
 </html>

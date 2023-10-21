@@ -12,3 +12,4 @@
 ## Our Process
 
 ## Resources:
+https://www.freecodecamp.org/news/how-to-make-line-charts-in-javascript/
