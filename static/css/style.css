@@ -4,9 +4,14 @@ body {
   margin: 0;
 }
 
-/* Set map, body, and html to 100% of the screen size. */
+/* https://www.w3schools.com/css/css_margin.asp */
+/* https://www.w3schools.com/css/css_float.asp */
 #map,
 body,
 html {
-  height: 100%;
+  height: 80vh;
+  width: 100%;
+  margin: 20px auto;
+  float: right;
 }
+
