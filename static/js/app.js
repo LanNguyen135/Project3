@@ -58,7 +58,7 @@ function drawChart(state,year){
             x: date,
             y: killed,
             name: "Deaths",
-            type: "line"
+            type: "bar"
             
         };
         
