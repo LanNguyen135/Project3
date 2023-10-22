@@ -1,7 +1,5 @@
 // Map
-console.log(gunViolenceData);
 let data = gunViolenceData.data;
-console.log(data);
 
 let data_2013 = [];
 let data_2014 = [];
@@ -10,27 +8,15 @@ let data_2016 = [];
 let data_2017 = [];
 let data_2018 = [];
 
-function color(massShooting){
-    let color = ""
-    if (massShooting === false) {
-        color = "green"
-    }
-    else {
-        color = "red"
-    }
-    return color
-}
-
 function createCircle(array, current_data) {  
     let lat = current_data.latitude;
     let lon = current_data.longitude;  
-    let massShooting = current_data.mass_shooting;
     let date = current_data.date;
     let killed = current_data.n_killed;
     let injured = current_data.n_injured
     array.push(
         L.circleMarker([lat,lon], {
-            color: color(massShooting),
+            color: "red",
             radius: 1
             }).bindPopup(date + "<br> Killed: "+ killed + "<br> Injured: "+ injured));
     return array;
@@ -64,9 +50,13 @@ for (let i=0; i<data.length; i++) {
     }    
 }
 
+let defaultToDarkFilter = [
+    'grayscale:100%',
+]
 
-let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+let street = L.tileLayer.colorFilter('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    filter: defaultToDarkFilter,
 })
 
 
@@ -102,7 +92,6 @@ L.control.layers(baseMaps, overlayMaps, {
 }).addTo(myMap);
 
 
-
 // table
 metadata = gunViolenceData.metadata;
 let metadata_2014 = [];
@@ -130,6 +119,8 @@ for (let i=0; i<metadata.length; i++){
         metadata_2018.push(current);
     }
 }
+
+console.log(metadata_2015)
 
 d3.selectAll("#selDataset1").on("change", getData1);
 
@@ -307,6 +298,7 @@ init1();
 
 // Deaths vs Injuries per year
 let data2 = gunViolenceData.data
+
 function getData3(state,year , freq = 10){
     let date=[]
     let killed=[]
