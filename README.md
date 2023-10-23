@@ -5,7 +5,7 @@
 ### Contributors:
 - "Alice" Lan Nguyen
 - Arnold Miranda Reynoso
-- Jacob Anderson (delete this)
+- Jacob Anderson
 - MaiDao Lor
 
 
