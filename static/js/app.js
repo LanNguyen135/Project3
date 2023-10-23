@@ -280,7 +280,7 @@ function changeBarGraph(data) {
   
   // Apply a title to the layout
   let layout = {
-    title: "Deaths vs Injuries per Year",
+    title: "Deaths vs Injuries Over the Course of Multiple Years",
     barmode: "group",
     // Include margins in the layout so the x-tick labels display correctly
     margin: {
